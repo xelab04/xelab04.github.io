@@ -1372,6 +1372,7 @@ About Us Style
 }
 
 .footer-class p {
+  padding-bottom: 40px;
   margin: 0 10%;
   font-size: 24px;
   text-align: center;
