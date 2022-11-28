@@ -102,7 +102,7 @@ header, nav, section, article, aside, footer, hgroup {
 }
 
 html, body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Source Code Pro', monospace;
   font-weight: 400;
   background-color: #2A2A2E;
   -ms-text-size-adjust: 100%;
@@ -142,7 +142,7 @@ global styles
 html,
 body {
   background: #222223;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Source Code Pro', monospace;
 }
 
 ::selection {
@@ -1395,6 +1395,10 @@ About Us Style
 }
 
 
+
+
+
+
 /*
 ---------------------------------------------
 Services Style
@@ -1695,18 +1699,30 @@ Footer Style
 ---------------------------------------------
 */
 
+footer {
+  background-color: #439aad;
+  display: grid;
+  align-items: center;
+  height: 120px;
+}
+
 footer p {
+  margin: 0 10%;
+  font-size: 24px;
   text-align: center;
-  margin: 30px 0px;
+  color: #FFFFFF;
+  align-self: center;
 }
 
-footer p a {
-  color: #439aad;
-  transition: all .5s;
-}
-
-footer p a:hover {
-  color: #4771cb;
+footer h2{
+  margin: 0 10%;
+  text-align: center;
+  align-self: center;
+  z-index: 2;
+  position: relative;
+  font-weight: 700;
+  font-size: 30px;
+  color: #FFFFFF;
 }
 
 /*
