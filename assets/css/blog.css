@@ -856,7 +856,7 @@ Banner Style
 
 .main-banner:after {
   content: '';
-  background-image: url(../images/banner.png);
+  background-image: url();
   background-repeat: no-repeat;
   position: absolute;
   left: 0;
@@ -1341,7 +1341,6 @@ About Us Style
 #potato {
   display: grid;
   align-items: center;
-  height: 120px;
 }
 
 .potatoes p {
@@ -1350,6 +1349,7 @@ About Us Style
   text-align: center;
   color: #FEFEFE;
   align-self: center;
+  margin-bottom: 0px !important;
 }
 
 .potatoes h2 {
@@ -1364,6 +1364,10 @@ About Us Style
   color: #00FFFF;
 }
 
+.give-padding {
+  padding-top: 50px;
+}
+
 #footer {
   background-color: #439aad;
   display: grid;
@@ -1372,7 +1376,6 @@ About Us Style
 }
 
 .footer-class p {
-  padding-bottom: 40px;
   margin: 0 10%;
   font-size: 24px;
   text-align: center;
@@ -1381,11 +1384,9 @@ About Us Style
 }
 
 .footer-class h2 {
-  padding-top: 40px;
   margin: 0 10%;
   text-align: center;
   align-self: center;
-
   z-index: 2;
   position: relative;
   font-weight: 700;
