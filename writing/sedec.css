@@ -1350,7 +1350,7 @@ About Us Style
 .potatoes p {
   margin: 0 10%;
   font-size: 20px;
-  text-align: left;
+  text-align: justify;
   color: #FEFEFE;
   align-self: left;
   margin-bottom: 0px !important;
