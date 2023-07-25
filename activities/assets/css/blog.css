@@ -1326,7 +1326,7 @@ About Us Style
 .about-us p {
   margin: 40px 0px;
   font-size: 24px;
-  text-align: center;
+  text-align: left;
   color: #FFFFFF;
   align-self: center
 }
@@ -1365,6 +1365,10 @@ About Us Style
 }
 
 .give-padding {
+  padding-top: 150px;
+}
+
+.give-some-padding {
   padding-top: 50px;
 }
 
