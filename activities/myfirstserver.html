@@ -1,0 +1,130 @@
+<html lang="en"><head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&amp;display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="../image.ico">
+    <title>Alex's Blog</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="sedec.css">
+    <link rel="stylesheet" href="assets/css/animated.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+<!--
+
+TemplateMo 563 SEO Dream
+
+https://templatemo.com/tm-563-seo-dream
+
+-->
+
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader loaded">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown animated" data-wow-duration="0.75s" data-wow-delay="0s" style="visibility: visible;-webkit-animation-duration: 0.75s; -moz-animation-duration: 0.75s; animation-duration: 0.75s;-webkit-animation-delay: 0s; -moz-animation-delay: 0s; animation-delay: 0s;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="../index.html" class="logo">
+              <!-- <h4>Hack Club MU <img src="assets/images/HC Logo.png" alt=""></h4> -->
+              <h4> Alex's Blog Site </h4>
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="../index.html" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="../projects/projects.html">Projects</a></li>
+              <li class="scroll-to-section"><a href="../writing/writing.html">Writing</a></li>
+              <li class="scroll-to-section"><a href="../activities/activities.html">Activities</a></li>
+              <li class="scroll-to-section"><a href="#products">Gaming On Linux</a></li>
+              <!-- <li class="scroll-to-section"><a href="#services">LGBTQ+ Topics</a></li> -->
+
+            </ul>
+            <a class="menu-trigger">
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+
+  <div id="potato">
+    <div class="potato-head potatoes-background wow fadeInRight give-padding animated" data-wow-duration="1s" data-wow-delay="0.5s" style="visibility: visible;-webkit-animation-duration: 1s; -moz-animation-duration: 1s; animation-duration: 1s;-webkit-animation-delay: 0.5s; -moz-animation-delay: 0.5s; animation-delay: 0.5s;">
+      <h2>My First Server<br></h2>
+    </div>
+  </div>
+
+
+  <div id="potato">
+    <div class="potatoes potatoes-background wow fadeInRight give-padding animated" data-wow-duration="1s" data-wow-delay="0.5s" style="visibility: visible;-webkit-animation-duration: 1s; -moz-animation-duration: 1s; animation-duration: 1s;-webkit-animation-delay: 0.5s; -moz-animation-delay: 0.5s; animation-delay: 0.5s;">
+
+      <h2>How I Got A Server<br></h2><br><p>A while ago, I inherited control over my very own server. Well, not exactly mine, but close enough!</p>
+<p>You see, the government had a plan some 8 years back to provide free internet throughout schools in Mauritius, as part of their ambitions to digitalise education through the use of tablets and laptops provisioned by schools, and by extension, the Ministry of Education. Unsurprisingly, this plan fell flat, but not before CSE had been provisioned with a fully fledged server, as well as a 24 port switch with fibre optic capabilities and what appears to be a managed switch/router.</p><p><br></p>
+<p>When the plans for free internet were dropped, so did any kind of management of the server. At school we do not have sysadmins and technicians who know what to do with such a server, and as such, all memories of the server and its promise faded, with the only reminder being the dull server box bolted to the wall of the computer lab.</p>
+<p><br></p><p>Then comes me, a little nerd who loves Linux a bit too much. After a year, I finally got permission to use the server and deploy applications and services for the benefit of the school. I had several things planned, such as a PiHole to act as ad blocker and also to block certain websites (like Facebook, Instagram and the like).</p><p><br></p><h2>Setting It Up!<br></h2><p></p>
+<p><br></p><p>So, one day, I brought my 10m long VGA cable, hooked the server up to a screen, and powered it on. The first thing which hit me was the noise! That server was sooo noisy! And noise aside, the server took ages to boot, checking drivers and the [ECC] RAM. When all that was done, I was greeted by the CLI of CentOS, which was finally some familiar-ish territory.</p>
+<p><br></p><p>Of course, I had no idea what the username and password were and I did not know it was possible to bypass the root password at the time. Additionally, I wanted to install something I was more familiar with. And so, as a long time Linux Mint user, who was familiar with Debian based distros like Raspberry Pi OS and Armbian (for my cluster), I opted for Ubuntu Server.</p>
+<p><br></p><p>I don’t think I have anything in particular to talk about the installation, other than it being so much more complicated than Ubuntu Desktop. For the most part, I just went with the defaults because I had no need for anything super custom.</p>
+<p>However, I need to mention that, for a week, I thought I did something bad during the install because the server had no network connection, but turned out to be the <em>new</em> Netgear 24 port switch which didn’t work…</p>
+<p>With all the drama out of the way, I was finally able to put my VGA cable back in its drawer, and connect to the server through SSH. With all the setup eventually done, I was finally able to see what kind of machine I had under my control.</p><p><br></p><h2>The Specs!<br></h2><p></p>
+<p><br></p><p>Not one, not even two, but FOUR CPU’s powered this monster, with a total of 64GB of RAM, upgradable to <em>one and a half</em> terabytes! I was also booted from [what appeared to be] 2 10k drives set up in Raid 0. And if I wanted to, I could add 32 2.5” SSD’s in the hot-swappable slots in the front. And, reader, please bear in mind that the most powerful device I had used until then was my PC at home; you may find these specs normal or even low since they appear to be somewhat standard in industry with Lenovo calling that server “entry level”, but to me, that was comparable to the Incas seeing a computer!</p><p><br></p><h2>Now What?<br></h2><p></p>
+<p><br></p><p>And now, the question you’re probably asking yourself: “Alex, what on Earth are you doing with that monster?”
+Sorry to disappoint, but the answer is nothing. Due to electrical issues and electricity going where it shouldn’t, the server is off and off-limits for now. Which is sad, especially since I had just got it set up and was working on some stuff to put on there! Easy access to teachers’ notes, facilitated monitoring of computers in the lab, and a PiHole were all plans I was looking forward to. On the plus side however, I got a lot of exposure to Docker and writing my own docker files, and I consider myself pretty decent at it now! And of course, the knowledge I gathered along the way will definitely be of use with my cluster at home, or with Linuxy stuff in the future.</p><p><br></p>
+<h2>The End... Or is it?<br></h2><p></p><p><br></p><p>So yeah, a bit of an inconclusive story, without the usual excitement and roller coaster of drama. However, it’s a story I wanted to share with people mainly because of how cool the whole ordeal was, as well as how getting to play with that server was a pretty important point in helping me decide what subsection of IT/Computer Science I would like to pursue in the future!</p>
+<p>
+      </p>
+
+    </div>
+  </div>
+
+  <div class="give-padding">
+    <footer>
+      <h2>Find Me Here:</h2><br> @Alex_with_a_B <br>
+      <p>Twitter:<a href="https://twitter.com/Alex_with_a_B">@Alex_with_a_B</a></p>
+      <p>Mastodon:<a href="https://mastodon.world/@xelab04">@xelab04@mastodon.world</a></p>
+    </footer>
+  </div>
+  <!-- Scripts -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/owl-carousel.js"></script>
+  <script src="../assets/js/animation.js"></script>
+  <script src="../assets/js/imagesloaded.js"></script>
+  <script src="../assets/js/custom.js"></script>
+
+  
+
+<div id="forest-ext-shadow-host"></div></body></html>
