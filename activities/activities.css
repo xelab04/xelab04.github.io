@@ -1068,7 +1068,7 @@ Due to the split circle of progress-left and progress right, we must use the ani
 .potatoes p {
   margin: 0 10%;
   font-size: 20px;
-  text-align: justified;
+  text-align: justify;
   color: #FEFEFE;
   align-self: left;
   margin-bottom: 0px !important;
