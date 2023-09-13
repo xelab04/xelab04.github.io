@@ -144,7 +144,7 @@ I mention this since K8S does tend to be a bit resource hungry for the limited S
       </p><h2>Installing K3S</h2><div><br></div>
       <p>It’s fairly simple, Rancher Labs provides an Ansible playbook to automate the installation of K3S on all your nodes with proper configuration. All you need to do is set some parameters and run.</p><p><br></p>
 <p>Ansible is a means of automating configuration and is widely used in devops. Jeff Geerling has several books on Ansible and is working on one for Kubernetes essentials.</p>
-<p>Parameters are passed in a .yaml file, where you declare the master and worker nodes through IP or hostname. This is your first encounter with yaml files which are an integral part of Kubernetes.</p>
+<p>Parameters are passed in a .yaml file, where you declare the master and worker nodes through IP or hostname. This is your first encounter with .yaml files which are an integral part of Kubernetes.</p>
 <p></p><p><br></p><p><br>
       <img src="assets/images/cluster/img3.png" alt="">
 
@@ -161,7 +161,7 @@ I mention this since K8S does tend to be a bit resource hungry for the limited S
 
       </p><h2>Redundancy &amp; High Availability</h2><div><br></div>
       <p>In a monolith server, hardware or software failures would usually impact services. As I mentioned earlier, this would equate to me seeing ads online, eww.</p><p><br></p>
-<p>Cluster computing reduces this flaw, as pods exist detached from the nodes they run on. This means they can easily be moved around by the master node(s) in the case that a worker dies. This minimises downtime and uninterrupted service. To put this into perspective, it would be devastating fora  bank to be down for even 30 minutes during peak hours in the days leading to Christmas! Hence Kubernetes helps minimise the impact of failures. One server on fire? Not even an inconvenience, just toss the pod elsewhere!</p>
+<p>Cluster computing reduces this flaw, as pods exist detached from the nodes they run on. This means they can easily be moved around by the master node(s) in the case that a worker dies. This minimises downtime and uninterrupted service. To put this into perspective, it would be devastating for a bank to be down for even 30 minutes during peak hours in the days leading to Christmas! Hence Kubernetes helps minimise the impact of failures. One server on fire? Not even an inconvenience, just toss the pod elsewhere!</p>
 <p></p><p><br></p><p><br>
 
 
@@ -174,7 +174,7 @@ I mention this since K8S does tend to be a bit resource hungry for the limited S
       </p><h2>Blue Green Deployment</h2><div><br></div>
       <p>It’s a method of organising your containers and nodes to avoid downtime during upgrades. In a monolith system, if you’re upgrading your OS or HW, the system will be offline temporarily.</p><p>But with a cluster, you can upgrade nodes separately - in batches.
 You direct traffic away from one batch while you take it down for upgrading. The other batch(es) pick up on the slack. When the first batch has been upgraded and tested for stability, you can then redirect traffic back and repeat for the other batch(es).</p><p>This deployment is called Blue/Green as the Blue batch runs the current version while the green runs the updated version. In this method, there is no downtime and the service remains accessible.</p>
-<p>I’ll compare this to Mc Donalds, to better explain. In a city, you have 2 outlets, but both need renovation. It makes logical sense to close only one at a time for renovation while the other continues to provide service.</p>
+<p>I’ll compare this to McDonalds, to better explain. In a city, you have 2 outlets, but both need renovation. It makes logical sense to close only one at a time for renovation while the other continues to provide service.</p>
 <p></p><p><br>
 
       <img src="assets/images/cluster/img6.png" alt="">
