@@ -113,7 +113,7 @@ https://templatemo.com/tm-563-seo-dream
       <h2>Single Board Computers</h2><div><br></div>
       <p>Okay, but in my case, I’m also looking at Single Board Computers. What the heck are they? Well, as their name suggests, they are computers on a single PCB, such as the Raspberry Pi - everything is onboard including CPU, RAM, GPU etc…<br>These SBCs are usually ARM based, with some exceptions of course which sport x86 processors from the Intel Celeron family. And technically speaking, SBCs have been around since the dawn of the PC, with the Acorn or BBC Micro which utilised SBCs as their main and only board. <br>However, modern-day, you usually think of the credit card sized PCs which are now widely available from a variety of different manufacturers.</p><p><br></p><p><br>
 
-      
+
       </p><h2>SBC Pros &amp; Cons</h2><div><br></div>
       <p>You may then ask why I’m talking specifically in the context of SBCs. Like why do I not use a cluster of 5 old desktops, some of those old Pentium 2 machines.</p>
 <p>Well first of all, those machines can’t be found nowadays without copious amounts of spiderwebs and enough dust to make a dust-storm.</p><p><br></p>
@@ -124,7 +124,7 @@ My cluster of 7 SBCs, on max load, would draw 75W, which is quite little!</p>
 <p>Additionally, since SBCs are typically ARM, some software may not be compatible, although this is rapidly changing due to Apple’s M1 and M2 chips which are ARM.</p>
 <p></p><p><br></p><p><br>
 
-      
+
       </p><h2>Kubernetes Pre-Requisites</h2><div><br></div>
       <p>So what are some pre-requisites before you’re able to be rocking Kubernetes?</p>
 <p><br></p><p>Well, I trust some people are already familiar with SBCs and how you set them up. It starts with flashing an OS onto the micro SD card which is your boot drive most of the time.<br>I use Balena Etcher for that, the software is very reliable. Plug the SD card in and do all the first-run config, such as setting up users, groups and passwords. I should also mention using different hostnames for your cluster nodes, since Kubernetes doesn’t appreciate it otherwise.</p>
@@ -132,49 +132,54 @@ My cluster of 7 SBCs, on max load, would draw 75W, which is quite little!</p>
 <p>At this stage, you should also think of your architecture, if you will go for blue/green deployment (more on that later). If you will do dedicated storage through a SQL server or similar. And since we’re in the world of redundancy, consider having more than 1 master node.</p>
 <p></p><p><br></p><p><br>
 
-      
+
       </p><h2>Kubernetes Flavours</h2><div><br></div>
       <p>Now, so far, I’ve been talking about Kubernetes, which usually means K8S. However, there are many flavours other than K8S out there. For example, Minikube or K3S.
 I mention this since K8S does tend to be a bit resource hungry for the limited SBCs. Hence I use K3S, which is made and distributed by Rancher Labs, a company owned by SUSE. It’s more lightweight and hence leaves ample resources to run my services and apps.</p><p><br></p><p>Just because it’s slimmed down does not mean it’s any less powerful. In fact, it’s fully certified and fully functional, just like K8S. However, it emphasises on ARM architecture support and is marketed towards SBCs like the Pi.</p>
+      <img src="assets/images/cluster/img1.png" alt="">
 <p></p><p><br></p><p><br>
 
-      
+
       </p><h2>Installing K3S</h2><div><br></div>
       <p>It’s fairly simple, Rancher Labs provides an Ansible playbook to automate the installation of K3S on all your nodes with proper configuration. All you need to do is set some parameters and run.</p><p><br></p>
 <p>Ansible is a means of automating configuration and is widely used in devops. Jeff Geerling has several books on Ansible and is working on one for Kubernetes essentials.</p>
 <p>Parameters are passed in a .yaml file, where you declare the master and worker nodes through IP or hostname. This is your first encounter with yaml files which are an integral part of Kubernetes.</p>
 <p></p><p><br></p><p><br>
+      <img src="assets/images/cluster/img3.png" alt="">
 
-      
       </p><h2>But Wait!<br></h2>
       <p><br></p><p>It’s cool that you have your cluster now. But before deploying apps to it, I think you need to add monitoring. Monitoring is an essential part of any server system, to monitor temperatures, load, storage etc… Well, anything that could go wrong.</p><p><br></p>
 <p>Prometheus and Grafana are standards used for self-hosted solutions. They work with Node Exporter which runs on every node and gathers metrics to send to Prometheus. Prometheus aggregates all the data and passes it onto Grafana which then displays graphs on a pretty web interface.</p>
 <p></p><p><br></p><p><br>
+  <img src="assets/images/cluster/img4.png" alt="">
 
-      
+
       </p><h2>What Can I Do Now?<br></h2>
       <p><br></p><p>- Game Server (friends not included)<br>- Web Server<br>- Self Hosting (eg Pihole)<br>- IoT (large ecosystem surrounding the Pi, with Home Assistant)<br>- Edge Computing<br>- Testing (ARM deployments)</p><p><br></p><h2>Why You Want One</h2><div><br></div><p>
 
-      
+
       </p><h2>Redundancy &amp; High Availability</h2><div><br></div>
       <p>In a monolith server, hardware or software failures would usually impact services. As I mentioned earlier, this would equate to me seeing ads online, eww.</p><p><br></p>
 <p>Cluster computing reduces this flaw, as pods exist detached from the nodes they run on. This means they can easily be moved around by the master node(s) in the case that a worker dies. This minimises downtime and uninterrupted service. To put this into perspective, it would be devastating fora  bank to be down for even 30 minutes during peak hours in the days leading to Christmas! Hence Kubernetes helps minimise the impact of failures. One server on fire? Not even an inconvenience, just toss the pod elsewhere!</p>
 <p></p><p><br></p><p><br>
 
-      
+
       </p><h2>Deployment Orchestration<br></h2>
       <p><strong><br></strong></p>
 <p>This is the bit full of complex terminology, but trust me, it’s not super relevant to a beginner entering the world of K8S; you’ll grasp these concepts as you learn more.</p>
 <p></p><p><br>
 
-      
+
       </p><h2>Blue Green Deployment</h2><div><br></div>
       <p>It’s a method of organising your containers and nodes to avoid downtime during upgrades. In a monolith system, if you’re upgrading your OS or HW, the system will be offline temporarily.</p><p>But with a cluster, you can upgrade nodes separately - in batches.
 You direct traffic away from one batch while you take it down for upgrading. The other batch(es) pick up on the slack. When the first batch has been upgraded and tested for stability, you can then redirect traffic back and repeat for the other batch(es).</p><p>This deployment is called Blue/Green as the Blue batch runs the current version while the green runs the updated version. In this method, there is no downtime and the service remains accessible.</p>
 <p>I’ll compare this to Mc Donalds, to better explain. In a city, you have 2 outlets, but both need renovation. It makes logical sense to close only one at a time for renovation while the other continues to provide service.</p>
 <p></p><p><br>
 
-      
+      <img src="assets/images/cluster/img6.png" alt="">
+      <img src="assets/images/cluster/img5.png" alt="">
+
+
       </p><h2>Proof of Concept &amp; Testing<br></h2>
       <p><br></p><p>Enterprises may have full testing infrastructure for trialling changes. My mum, for example, has 5 full enterprise servers just for testing out the stuff she develops. Sheesh.</p>
 <p>Hobbyists, homelabbers and smaller businesses do not have such monetary facilities though. At best, they could trial something in a VM for a bit. But with a minicluster, it opens a lot of possibilities for testing and development without breaking the bank.</p><p><br></p>
@@ -184,18 +189,20 @@ You direct traffic away from one batch while you take it down for upgrading. The
 <p><br></p><p>Really, the sky is the limit, and I don’t have any industry exposure to tell you just what you can achieve with something so small yet so powerful!</p>
 <p></p><p><br>
 
-      
+
       </p><h2>Not Convinced?</h2><div><br></div>
       <p>- SBCs are becoming more powerful and cheaper. For example, Radxa Rock 5B, Lattepanda Sigma, Zimaboard…<br></p><p><br></p><p>- Raspberry Pi is commited to restoring production volumes to pre-pandemic levels, allowing you to finally get a cluster.<br></p><p><br></p><p>- Due to more Pi4’s hitting the market, there’s an influx of Pi3’s on the second hand market. This would be sufficient to at least learn about K8S and upgrade at a later date, when you become a full-on homelabber.<br></p><p><br></p><p>- The Raspberry Pi community is extremely beginner friendly, with piles of documentation and loads of people ready to help in the forums.</p><p><br>- SBC’s are very low power, so won’t be like stuffing a Dell PowerEdge under your bed, where it eats electricity like crazy and produces a lot of noise.<br></p><p><br></p><p>- SBC’s have decent power for personal use, in game servers, webservers, self hosting etc…<br></p><p><br></p><p>- You own your data. Thie means better privacy - your own cloud, email, search engine etc… Personal data is now worth a lot to train AI or for surveillance purposes and many companies are now under fire for unethical use of AI using personal data.<br></p><p><br></p><p>- And most importantly, it’s fun. Being able to play with hardware and build and rebuild your cluster is just fun. Take a part of your boring life and enjoy yourself by instead ripping your hair out when your server isn’t working!</p><p><br>
 
-      
+
       </p><h2>Limitations<br></h2>
       <p><br></p><p>That’s not to say that a minicluster does not have limitations. In fact, an SBC cluster has many of the same failing points as individual SBCs.</p><p><br></p>
 <p>In a cluster, you cannot think of it like adding resources. 4 nodes of 2GB RAM does not equate to 1 node of 8GB RAM, not in K8S at least. Hence, resources may get cramped, especially when you start deploying heavy apps such as game servers.</p>
 <p><br></p><p>And since you can’t really break a pod down further, if a pod cannot run on one SBC, it just cannot run on the cluster. This means your architecture must be well planned and optimised.</p>
 <p><br></p><p>Additionally, SBCs have limited expansion or customisation. NO NVME, no RAM upgrade, and no part redundance (eg 2 PSU). This means they also have poor graphics capabilities and cannot realistically be used for AI or render farms.</p>
 <p><br></p><p>And while these are valid drawbacks, at least at the time of me writing this, I can see many of them being plain wrong in the future, with all the amazing advancements so far. I mean, in 1U of server space, you could either have a single traditional server or 12 SBCs, complete with fast storage and everything, to total some 96 cores and 192GB RAM.</p>
-<p></p><p><br></p><h2>Conclusion<br></h2>
+<p></p><p><br></p>
+<img src="assets/images/cluster/img7.png" alt="">
+<h2>Conclusion<br></h2>
       <p><br></p><p>I’d like to end this first part with my ambitions for my cluster. Things like game servers, home assistant, plex, discord bots, nextcloud, download assistants (*arr) and sorts are on the horizon. Of course I could dedicate myself to a monolith, but if it dies, everything blows up. With a cluster, I get to remove any machine and everything keeps working absolutely fine. The additional effort in learning Kubernetes translates to more reliability and ease of management. It’s objectively better than manually managing a bunch of apps on a monolith server which isn’t really repeatable, reliable or isolated.
 There’s a lot of cool stuff going on in the world of Kubernetes and SBCs, so maybe you’ll decide to have a K3S cluster at home or work! And if you’re like me, you’ll benefit from learning a lot and having heaps of fun doing so!</p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p><br></p><h2><br></h2><h2></h2></div>
   </div>
@@ -215,6 +222,6 @@ There’s a lot of cool stuff going on in the world of Kubernetes and SBCs, so m
   <script src="../assets/js/imagesloaded.js"></script>
   <script src="../assets/js/custom.js"></script>
 
-  
+
 
 <div id="forest-ext-shadow-host"></div></body></html>
